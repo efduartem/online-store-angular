@@ -8,7 +8,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 
-
+//Services
+import { DataService } from './data.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -21,6 +22,7 @@ import { NavbarComponent } from './home/navbar/navbar.component';
 import { ProductsCatalogComponent } from './home/products-catalog/products-catalog.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { ProductComponent } from './home/product/product.component';
+import { ShoppingCartComponent } from './home/shopping-cart/shopping-cart.component';
 
 
 export const firebaseConfig = {
@@ -40,7 +42,8 @@ export const firebaseConfig = {
     NavbarComponent,
     ProductsCatalogComponent,
     SearchFilterPipe,
-    ProductComponent
+    ProductComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [AngularFireDatabase,AngularFireAuth],
+  providers: [AngularFireDatabase,AngularFireAuth, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
