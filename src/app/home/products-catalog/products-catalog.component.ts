@@ -12,7 +12,6 @@ export class ProductsCatalogComponent implements OnInit {
   constructor(private dataService: DataService) {
     this.dataService.getProducts().then((data)=>{
       this.products = data["products"];
-      console.log(this.products);
     });
   }
 

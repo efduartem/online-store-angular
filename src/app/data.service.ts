@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class DataService {
-
+  private products:any = [];
   constructor(private http : Http) { }
 
   getProducts(){
@@ -17,6 +17,10 @@ export class DataService {
     })
 
     return promesa;
+  }
+
+  getProducto(index:string){
+    return this.http.get(`https://online-store-nextu.firebaseio.com/productos/${ index }.json`);
   }
 
 }
